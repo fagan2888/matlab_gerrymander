@@ -81,11 +81,11 @@ alpha=min(onetail,othertail)/num_matching;
 fprintf("\ntotal_state_seats is %i", total_state_seats);
 fprintf("\nalldist is %i", alldist);
 %fprintf("valu is based on a random number. In this case it's ", valu);
-fprintf("\nfantasydel is %i", fantasydel);
+fprintf("\nfantasydel is based on a random number. In this case it's %i", fantasydel);
 
-fprintf("\np is %i", p)
+fprintf("\np is based on a random number. In this case it's %i", p)
 
-fprintf("\ndseats is %i", dseats);
+fprintf("\ndseats is based on a random number. In this case it's %i", dseats);
 fprintf("\n")
 
 % plot all delegations
