@@ -56,7 +56,7 @@ else
     end
 end
 
-epsilon=0.1; % the larger this is, the closer sigma is to the expected. 0.001 means within 0.1%
+epsilon=0.3; % the larger this is, the closer sigma is to the expected. 0.001 means within 0.1%
 % if epsilon=0.15 and SD of parent distribution is 0.15, sigma and std_sim are nearly the same
 % if epsilon<<SD, seems to go toward 0.61 or so
 % there is some kind of asymptotic behavior as the constraint is put on
@@ -73,6 +73,20 @@ othertail=length(find(dseats(closesims)<=actual_Dseats));
 alpha=min(onetail,othertail)/num_matching;
 
 % results = [meanseats SDseats sigma actual_Dseats total_state_seats num_matching alpha];
+
+% Let's make a section to print out key variables to compare with the Python version
+
+%fprintf("sigma is %2.1d%" , sigma);
+
+fprintf("\ntotal_state_seats is %i", total_state_seats);
+fprintf("\nalldist is %i", alldist);
+%fprintf("valu is based on a random number. In this case it's ", valu);
+fprintf("\nfantasydel is %i", fantasydel);
+
+fprintf("\np is %i", p)
+
+fprintf("\ndseats is %i", dseats);
+fprintf("\n")
 
 % plot all delegations
     Fig3 = figure(4);
@@ -99,3 +113,5 @@ alpha=min(onetail,othertail)/num_matching;
     set(gcf,'PaperPositionMode','auto')
     %print([outputfilename '_Test3_hires.jpg'],'-djpeg','-r300')
     %screen2jpeg([outputfilename '_Test3.jpg'])
+    
+
