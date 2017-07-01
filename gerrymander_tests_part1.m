@@ -26,7 +26,7 @@ outputfilename_=outputfilename; symm_=symm;
 global parameterlisting stateresults nationalresults symm_ number_of_simulations outputfilename_ % this allows the program to be split across two scripts so a browser message can be displayed in between
 
 fprintf('%s Starting\n', datestr(now))
-starttime=datetime('now'); % comment this out when running on laptop
+%starttime=datetime('now'); % comment this out when running on laptop
 electionmessage='Election to be analyzed: ';
 parameterlist0=sprintf('Parameters: year=%i ',year);
 if year==0

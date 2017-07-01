@@ -1,4 +1,11 @@
-global parameterlisting stateresults nationalresults symm_ number_of_simulations outputfilename_ starttime
+%global parameterlisting stateresults nationalresults symm_ number_of_simulations outputfilename_ starttime
+
+stateDvotes = [1, 0, 0, 1]
+Dvotes = [1, 0, 0.5, 0.75, 0.750002]
+symmet = 0
+number_of_simulated_delegations = [2,2]
+outputfilename = "filename"
+
 
 fid=fopen(strcat(outputfilename_,'.html'),'a');
 
@@ -7,7 +14,7 @@ fid=fopen(strcat(outputfilename_,'.html'),'a');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fprintf('%s Test 3\n', datestr(now))
 number_of_simulations=1000000;
-[meanseats SDseats sigma actual_Dseats total_state_seats num_matching p3]=gerry_fantasy_delegations(stateresults,nationalresults,symm_,number_of_simulations,outputfilename_);
+[meanseats SDseats sigma actual_Dseats total_state_seats num_matching p3]=gerry_fantasy_delegations(stateDvotes,Dvotes,symmet,number_of_simulated_delegations,outputfilename);
 fprintf(fid,'<p><b>Test of Effects: How many extra seats did either party gain relative to party-neutral sampling? (fantasy delegations)</b>: ');
 fprintf(fid,'It is possible to estimate how the state''s delegation would be composed if votes were distributed according to natural variations in districting. ');
 fprintf(fid,'This is done by drawing districts at random from a large national sample, and then examining combinations whose vote totals are similar to the actual outcome. ');

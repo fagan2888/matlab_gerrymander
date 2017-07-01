@@ -31,6 +31,8 @@ function [meanseats,SDseats,sigma,actual_Dseats,total_state_seats,num_matching,a
 % alldistricts is the set of districts from which to build simulated delegations 
 alldist=length(Dvotes); alldistricts=[1:alldist]; % all districts to be sampled
 total_state_seats=length(stateDvotes); sdist=[1:total_state_seats];
+fprintf("\ntotal_state_seats is %i", total_state_seats);
+pause(3);
 % Dvotes=normrnd(0.5,0.15,size(alldistricts)); % create a symmetric distribution to sample from
 
 % true delegation
@@ -51,6 +53,7 @@ else
     for i=1:number_of_simulated_delegations
         fantasydel=alldistricts([floor(rand([1 total_state_seats])*alldist)+1]); % pick a random set of districts
         flips=sign(rand([total_state_seats 1])-0.5);
+        fprintf("\ntotal_state_seats is %i", total_state_seats);
         p(i)=( sum(Dvotes(fantasydel).*flips) + length(find(flips==-1)) )/total_state_seats; % average two-party vote share in the simulated delegation
         dseats(i)= sum(Dvotes(fantasydel(find(flips==1)))>0.5) + sum(Dvotes(fantasydel(find(flips==-1)))<0.5); % the simulated delegation has this many D seats
     end
